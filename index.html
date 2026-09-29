@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pe&amp;Pe Garage - Autoservis Jamartice, Rýmařov</title>
+<meta name="description" content="Pe&amp;Pe Garage - poctivý autoservis v Jamarticích u Rýmařova. Diagnostika, výměna oleje, přezouvání pneu, opravy motorů. Servis všech značek.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#1a2027;
+    --paper:#eef1f5;
+    --paper-dim:#dde3ea;
+    --steel:#233240;
+    --steel-soft:#5b6c7a;
+    --yellow:#eea200;
+    --yellow-deep:#c97e00;
+    --red:#c1392b;
+    --line: rgba(26,32,39,0.14);
+    --radius: 2px;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Archivo', sans-serif;
+    font-weight:400;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img{
+    max-width:100%;
+    display:block;
+  }
+
+  a{
+    color:inherit;
+  }
+
+  h1,h2,h3{
+    font-family:'Archivo', sans-serif;
+    font-weight:900;
+    letter-spacing:-0.01em;
+    margin:0 0 0.4em;
+    color:var(--steel);
+  }
+
+  p{
+    margin:0 0 1em;
+  }
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  section{
+    padding:96px 0;
+  }
+
+  @media (max-width:720px){
+    section{
+      padding:64px 0;
+    }
+  }
+
+  /* ---------- Nav ---------- */
+
+  .nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:50;
+    background:rgba(238,241,245,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+
+  .nav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:12px;
+    padding-bottom:12px;
+  }
+
+  .nav-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:900;
+    font-size:1.05rem;
+    color:var(--steel);
+    text-decoration:none;
+  }
+
+  .nav-brand img{
+    height:40px;
+    width:auto;
+  }
+
+  .nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+
+  .nav-links a{
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.95rem;
+    color:var(--steel);
+    border-bottom:2px solid transparent;
+    padding-bottom:2px;
+    transition:border-color .15s ease;
+  }
+
+  .nav-links a:hover{
+    border-color:var(--yellow);
+  }
+
+  .nav-call-group{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .nav-call{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--steel);
+    color:var(--paper);
+    padding:9px 14px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    font-weight:700;
+    font-size:0.88rem;
+    white-space:nowrap;
+  }
+
+  .nav-call:hover{
+    background:var(--red);
+  }
+
+  .nav-mobile-toggle{
+    display:none;
+  }
+
+  @media (max-width:820px){
+    .nav-links{
+      display:none;
+    }
+
+    .nav-mobile-toggle{
+      display:block;
+      background:none;
+      border:none;
+      font-size:1.6rem;
+      color:var(--steel);
+      cursor:pointer;
+    }
+  }
+
+  @media (max-width:600px){
+    .nav-call-group{
+      gap:6px;
+    }
+
+    .nav-call{
+      padding:8px 10px;
+      font-size:0.8rem;
+    }
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:flex-end;
+    background:
+      linear-gradient(180deg, rgba(18,24,32,0.4), rgba(14,19,26,0.85)),
+      url('images/prace-motor.jpg') center 30%/cover no-repeat;
+    color:#f4f3ee;
+  }
+
+  .hero .wrap{
+    padding-top:140px;
+    padding-bottom:88px;
+    width:100%;
+  }
+
+  .hero-tag{
+    display:inline-block;
+    font-weight:700;
+    font-size:0.85rem;
+    color:var(--yellow);
+    background:rgba(28,28,26,0.55);
+    border:1px solid rgba(238,162,0,0.5);
+    padding:6px 14px;
+    border-radius:var(--radius);
+    margin-bottom:22px;
+  }
+
+  .hero h1{
+    color:#faf9f4;
+    font-size:clamp(2.4rem, 6vw, 4.6rem);
+    line-height:0.98;
+    max-width:14ch;
+    margin-bottom:0.3em;
+  }
+
+  .hero-sub{
+    max-width:46ch;
+    font-size:1.15rem;
+    color:#dcded5;
+    margin-bottom:2em;
+  }
+
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 26px;
+    font-weight:700;
+    font-size:1rem;
+    text-decoration:none;
+    border-radius:var(--radius);
+    border:2px solid transparent;
+    transition:
+      transform .12s ease,
+      background .15s ease,
+      border-color .15s ease;
+  }
+
+  .btn:hover{
+    transform:translateY(-1px);
+  }
+
+  .btn-primary{
+    background:var(--yellow);
+    color:var(--ink);
+  }
+
+  .btn-primary:hover{
+    background:#ffb519;
+  }
+
+  .btn-ghost{
+    border-color:rgba(244,243,238,0.55);
+    color:#f4f3ee;
+  }
+
+  .btn-ghost:hover{
+    border-color:#f4f3ee;
+    background:rgba(244,243,238,0.08);
+  }
+
+  .btn-dark{
+    background:var(--steel);
+    color:var(--paper);
+  }
+
+  .btn-dark:hover{
+    background:var(--red);
+    color:#fff;
+  }
+
+  /* ---------- Hazard divider ---------- */
+
+  .hazard{
+    height:14px;
+    background:
+      repeating-linear-gradient(
+        135deg,
+        var(--yellow) 0 22px,
+        var(--ink) 22px 44px
+      );
+  }
+
+  /* ---------- Section heads ---------- */
+
+  .kicker{
+    font-weight:700;
+    font-size:0.95rem;
+    color:var(--red);
+    margin-bottom:10px;
+  }
+
+  .section-head{
+    max-width:56ch;
+    margin-bottom:48px;
+  }
+
+  .section-head h2{
+    font-size:clamp(1.8rem, 3.4vw, 2.6rem);
+  }
+
+  .section-head p{
+    color:var(--steel-soft);
+    font-size:1.08rem;
+  }
+
+  /* ---------- Plate corners ---------- */
+
+  .plate{
+    position:relative;
+    background:#fff;
+    border:1px solid var(--line);
+    padding:36px;
+    border-radius:var(--radius);
+  }
+
+  .plate::before,
+  .plate::after,
+  .plate .rivet-tl,
+  .plate .rivet-br{
+    content:"";
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--steel-soft);
+    opacity:0.35;
+  }
+
+  .plate::before{
+    top:12px;
+    left:12px;
+  }
+
+  .plate::after{
+    bottom:12px;
+    right:12px;
+  }
+
+  /* ---------- About ---------- */
+
+  .about{
+    background:var(--paper);
+  }
+
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+    align-items:center;
+  }
+
+  @media (max-width:860px){
+    .about-grid{
+      grid-template-columns:1fr;
+    }
+  }
+
+  .about-photo{
+    position:relative;
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+
+  .about-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    aspect-ratio:4/5;
+  }
+
+  .about-badge{
+    position:absolute;
+    left:18px;
+    bottom:18px;
+    background:var(--ink);
+    color:var(--yellow);
+    font-weight:900;
+    font-size:0.95rem;
+    padding:10px 16px;
+    border-radius:var(--radius);
+    border:1px solid rgba(238,162,0,0.5);
+  }
+
+  .about-text h2{
+    font-size:clamp(1.8rem,3.2vw,2.5rem);
+  }
+
+  .about-text p{
+    font-size:1.08rem;
+    color:#3a4448;
+  }
+
+  .about-signoff{
+    margin-top:28px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+
+  .signoff-item{
+    font-weight:700;
+    color:var(--steel);
+  }
+
+  .signoff-item span{
+    display:block;
+    font-weight:400;
+    font-size:0.9rem;
+    color:var(--steel-soft);
+  }
+
+  .brand-strip{
+    margin-top:26px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+  }
+
+  .brand-logos{
+    max-width:100%;
+    height:auto;
+    display:block;
+    border-radius:var(--radius);
+  }
+
+  /* ---------- Services ---------- */
+
+  .services{
+    background:var(--steel);
+    color:var(--paper);
+  }
+
+  .services .kicker{
+    color:var(--yellow);
+  }
+
+  .services .section-head h2{
+    color:#fff;
+  }
+
+  .services .section-head p{
+    color:#c4cdcf;
+  }
+
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:2px;
+    background:rgba(244,243,238,0.14);
+    border:1px solid rgba(244,243,238,0.14);
+  }
+
+  @media (max-width:720px){
+    .service-grid{
+      grid-template-columns:1fr;
+    }
+  }
+
+  .service-card{
+    background:var(--steel);
+    padding:34px;
+    display:flex;
+    gap:18px;
+  }
+
+  .service-icon{
+    flex:none;
+    width:46px;
+    height:46px;
+    color:var(--yellow);
+  }
+
+  .service-card h3{
+    color:#fff;
+    font-size:1.2rem;
+    margin-bottom:0.35em;
+  }
+
+  .service-card p{
+    color:#b9c2c4;
+    margin:0;
+    font-size:0.98rem;
+  }
+
+  .gear-strip{
+    margin-top:56px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+  }
+
+  @media (max-width:720px){
+    .gear-strip{
+      grid-template-columns:1fr 1fr;
+    }
+  }
+
+  .gear-strip figure{
+    margin:0;
+    overflow:hidden;
+    border-radius:var(--radius);
+  }
+
+  .gear-strip img{
+    width:100%;
+    aspect-ratio:3/4;
+    height:auto;
+    object-fit:cover;
+    filter:saturate(0.92);
+  }
+
+  /* ---------- Reviews ---------- */
+
+  .reviews{
+    background:var(--paper-dim);
+  }
+
+  .review-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:28px;
+  }
+
+  @media (max-width:720px){
+    .review-grid{
+      grid-template-columns:1fr;
+    }
+  }
+
+  .review-card{
+    background:#fff;
+    border:1px solid var(--line);
+    padding:32px;
+    border-radius:var(--radius);
+  }
+
+  .review-stars{
+    color:var(--yellow-deep);
+    font-size:1.05rem;
+    letter-spacing:2px;
+    margin-bottom:14px;
+  }
+
+  .review-quote{
+    font-size:1.08rem;
+    color:var(--ink);
+    margin-bottom:18px;
+  }
+
+  .review-name{
+    font-weight:700;
+    color:var(--steel);
+  }
+
+  .review-source{
+    font-size:0.88rem;
+    color:var(--steel-soft);
+  }
+
+  /* ---------- Contact ---------- */
+
+  .contact{
+    background:var(--ink);
+    color:var(--paper);
+  }
+
+  .contact .kicker{
+    color:var(--yellow);
+  }
+
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    align-items:start;
+  }
+
+  @media (max-width:860px){
+    .contact-grid{
+      grid-template-columns:1fr;
+    }
+  }
+
+  .contact-block h2{
+    color:#fff;
+  }
+
+  .contact-list{
+    list-style:none;
+    margin:0 0 30px;
+    padding:0;
+  }
+
+  .contact-list li{
+    display:flex;
+    gap:14px;
+    padding:14px 0;
+    border-bottom:1px solid rgba(244,243,238,0.12);
+    font-size:1.02rem;
+  }
+
+  .contact-list li strong{
+    display:block;
+    color:#fff;
+  }
+
+  .contact-list li a{
+    color:var(--yellow);
+    text-decoration:none;
+    font-weight:700;
+  }
+
+  .contact-list li a:hover{
+    text-decoration:underline;
+  }
+
+  .hours-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:0.98rem;
+  }
+
+  .hours-table td{
+    padding:9px 0;
+    border-bottom:1px solid rgba(244,243,238,0.1);
+  }
+
+  .hours-table td:last-child{
+    text-align:right;
+    font-weight:700;
+    color:#fff;
+  }
+
+  .hours-table tr.closed td:last-child{
+    color:#8b9598;
+  }
+
+  .map-frame{
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:1px solid rgba(244,243,238,0.16);
+    margin-bottom:16px;
+  }
+
+  .map-frame iframe{
+    width:100%;
+    height:340px;
+    border:0;
+    display:block;
+    filter:grayscale(0.15) contrast(1.05);
+  }
+
+  /* ---------- Footer ---------- */
+
+  .footer{
+    background:var(--ink);
+    border-top:1px solid rgba(244,243,238,0.12);
+    padding:26px 0;
+  }
+
+  .footer .wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:space-between;
+    align-items:center;
+    color:#8b9598;
+    font-size:0.88rem;
+  }
+
+  .footer a{
+    color:#c4cdcf;
+    text-decoration:none;
+  }
+
+  .footer a:hover{
+    color:var(--yellow);
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:
+      opacity .6s ease,
+      transform .6s ease;
+  }
+
+  .reveal.in{
+    opacity:1;
+    transform:none;
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .reveal{
+      opacity:1;
+      transform:none;
+      transition:none;
+    }
+
+    html{
+      scroll-behavior:auto;
+    }
+  }
+
+  :focus-visible{
+    outline:3px solid var(--yellow);
+    outline-offset:2px;
+  }
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+
+    <a class="nav-brand" href="#top">
+      <img src="images/logo.png" alt="Pe&amp;Pe Garage">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#o-nas">O nás</a></li>
+      <li><a href="#sluzby">Služby</a></li>
+      <li><a href="#reference">Reference</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+
+    <div class="nav-call-group">
+      <a class="nav-call" href="tel:+420773264212">📞 773 264 212</a>
+      <a class="nav-call" href="tel:+420728432797">📞 728 432 797</a>
+    </div>
+
+  </div>
+</nav>
+
+<header id="top" class="hero">
+  <div class="wrap">
+
+    <span class="hero-tag">Jamartice u Rýmařova</span>
+
+    <h1>Pe&amp;Pe Garage - Poctivý servis pro váš vůz.</h1>
+
+    <p class="hero-sub">
+      V Pe&amp;Pe Garage opravujeme auta všech značek - s jasnou a rychlou domluvou.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="tel:+420773264212">📞 773 264 212</a>
+      <a class="btn btn-primary" href="tel:+420728432797">📞 728 432 797</a>
+      <a class="btn btn-ghost" href="#kontakt">Najít nás</a>
+    </div>
+
+  </div>
+</header>
+
+<div class="hazard" role="presentation"></div>
+
+<section class="about" id="o-nas">
+  <div class="wrap about-grid">
+
+    <div class="about-photo reveal">
+      <img
+        src="images/majitel.jpg"
+        alt="Jeden ze zakladatelů Pe&amp;Pe Garage při práci v dílně"
+      >
+      <span class="about-badge">Servis všech značek</span>
+    </div>
+
+    <div class="about-text reveal">
+
+      <p class="kicker">O nás</p>
+
+      <h2>Jedna dílna - kompletní servis.</h2>
+
+      <p>
+        Jsme dva kolegové - Petr &amp; Petr. Spojuje nás stejný přístup k práci:
+        co se zákazníkem domluvíme, to dodržíme. Pracujeme rychle a kvalitně.
+      </p>
+
+      <p>
+        U nás vaše auto prohlédneme, prověříme a domluvíme se na dalším postupu.
+        Servisujeme vozy všech značek - od běžné údržby po opravy motoru
+        a mechanických částí.
+      </p>
+
+      <div class="about-signoff">
+        <div class="signoff-item">
+          Petr &amp; Petr
+          <span>zakladatelé servisu</span>
+        </div>
+
+        <div class="signoff-item">
+          Jamartice 118
+          <span>Rýmařov a okolí</span>
+        </div>
+      </div>
+
+      <div class="brand-strip">
+        <img
+          src="images/znacky.png"
+          alt="Servisujeme značky: Mercedes, Audi, Škoda, BMW, VW, Seat, Peugeot, Citroën"
+          class="brand-logos"
+        >
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="services" id="sluzby">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <p class="kicker">Co u nás vyřídíte</p>
+      <h2>Servis, na který se dá spolehnout</h2>
+    </div>
+
+    <div class="service-grid reveal">
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M40 14a9 9 0 0 1-12.5 8.3L15 34.8a3.5 3.5 0 0 1-5-5l12.5-12.5A9 9 0 0 1 34 5l-6 6 3 3 6-6a9 9 0 0 1 3 6Z"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linejoin="round"
+          />
+        </svg>
+
+        <div>
+          <h3>Opravy motorů a mechaniky</h3>
+          <p>Od drobných závad po kompletní zásah do motorové části vozidla.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="17" stroke="currentColor" stroke-width="2.4"/>
+          <circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="2.4"/>
+          <path
+            d="M24 7v6M24 35v6M7 24h6M35 24h6"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+          />
+        </svg>
+
+        <div>
+          <h3>Přezouvání a vyvažování pneu</h3>
+          <p>Sezónní přezutí i vyvážení kol, opravy defektů.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M24 6c6 7 10 12.6 10 18a10 10 0 1 1-20 0c0-5.4 4-11 10-18Z"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linejoin="round"
+          />
+        </svg>
+
+        <div>
+          <h3>Výměna oleje a filtrů</h3>
+          <p>Motorový olej, olejové, vzduchové i kabinové filtry na počkání.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M8 30a16 16 0 0 1 32 0"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+          />
+          <path
+            d="M24 30 32 18"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+          />
+          <circle cx="24" cy="30" r="2.4" fill="currentColor"/>
+        </svg>
+
+        <div>
+          <h3>Diagnostika a příprava na STK</h3>
+          <p>Poctivá diagnostika vozu a příprava na STK a emise.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="gear-strip reveal">
+      <figure>
+        <img src="images/zvedak.jpg" alt="Vůz na zvedáku Redats v dílně">
+      </figure>
+
+      <figure>
+        <img src="images/pneu.jpg" alt="Zouvačka pneumatik Redats M-111F">
+      </figure>
+
+      <figure>
+        <img src="images/olej.jpg" alt="Odsávání motorového oleje na zvedáku">
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<section class="reviews" id="reference">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <p class="kicker">Reference</p>
+      <h2>Co říkají zákazníci</h2>
+    </div>
+
+    <div class="review-grid reveal">
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+
+        <p class="review-quote">
+          „Výměna vzduchových a kabinových filtrů a výměna oleje.
+          Dobrá domluva a rychlé vyřízení.“
+        </p>
+
+        <div class="review-name">Petr Kalina</div>
+        <div class="review-source">Zákazník servisu</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+
+        <p class="review-quote">
+          „Kompletní výměna brzd, kontrola motorové části.
+          Vše proběhlo rychle a jsem spokojený.“
+        </p>
+
+        <div class="review-name">Jaroslav Jalůvka</div>
+        <div class="review-source">Zákazník servisu</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="wrap contact-grid">
+
+    <div class="contact-block reveal">
+
+      <p class="kicker">Kde nás najdete</p>
+
+      <h2>Zastavte se nebo zavolejte</h2>
+
+      <ul class="contact-list">
+
+        <li>
+          <div>
+            <strong>Adresa</strong>
+            Jamartice 118, 795 01 Rýmařov
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <strong>Telefon</strong>
+            <a href="tel:+420773264212">773 264 212</a>
+            &nbsp;/&nbsp;
+            <a href="tel:+420728432797">728 432 797</a>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <strong>IČ</strong>
+            23341068
+          </div>
+        </li>
+
+      </ul>
+
+      <table class="hours-table">
+        <tr><td>Pondělí</td><td>8:00–17:30</td></tr>
+        <tr><td>Úterý</td><td>8:00–17:30</td></tr>
+        <tr><td>Středa</td><td>8:00–17:30</td></tr>
+        <tr><td>Čtvrtek</td><td>8:00–17:30</td></tr>
+        <tr><td>Pátek</td><td>8:00–17:30</td></tr>
+        <tr><td>Sobota</td><td>9:00–13:00</td></tr>
+        <tr class="closed"><td>Neděle</td><td>Zavřeno</td></tr>
+      </table>
+
+    </div>
+
+    <div class="contact-block reveal">
+
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps?q=Jamartice+118,+795+01+R%C3%BDma%C5%99ov&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa – Pe&Pe Garage, Jamartice 118">
+        </iframe>
+      </div>
+
+      <a
+        class="btn btn-dark"
+        href="https://maps.app.goo.gl/Po48RTJuc3TeBjNJ6"
+        target="_blank"
+        rel="noopener"
+      >
+        Otevřít v Google Mapách
+      </a>
+
+      <figure style="margin:24px 0 0;">
+        <div class="map-frame" style="margin-bottom:8px;">
+          <img
+            src="images/vjezd.jpg"
+            alt="Vjezd do areálu Pe&amp;Pe Garage v Jamarticích"
+          >
+        </div>
+
+        <figcaption style="font-size:0.88rem; color:#8b9598;">
+          Takhle vypadá vjezd do areálu - podle něj nás snadno poznáte.
+        </figcaption>
+      </figure>
+
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+
+  <div class="wrap">
+
+    <span>
+      © <span id="year"></span> Pe&amp;Pe Garage - Jamartice 118, Rýmařov
+    </span>
+
+    <span>
+      <a href="tel:+420773264212">773 264 212</a>
+      &nbsp;/&nbsp;
+      <a href="tel:+420728432797">728 432 797</a>
+    </span>
+
+  </div>
+
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const revealEls = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window) {
+
+    const io = new IntersectionObserver((entries) => {
+
+      entries.forEach(e => {
+
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+
+      });
+
+    }, {threshold:0.15});
+
+    revealEls.forEach(el => io.observe(el));
+
+  } else {
+
+    revealEls.forEach(el => el.classList.add('in'));
+
+  }
+</script>
+
+</body>
+</html>
